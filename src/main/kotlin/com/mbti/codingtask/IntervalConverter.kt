@@ -10,6 +10,7 @@ package com.mbti.codingtask
 fun String.parseIntervalsToList(): List<Interval> {
     return trim().split(" ").filter { it.isNotBlank() }.map { intervalText ->
         val (start, end) = intervalText.removeSurrounding("[", "]").split(",", ";").map { it.toInt() }
+        check(start <= end) { "Only intervals with a <= b for [a,b] are allowed" }
         Interval(start, end)
     }
 }
