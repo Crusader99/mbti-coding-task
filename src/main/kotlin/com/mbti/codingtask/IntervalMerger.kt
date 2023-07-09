@@ -10,6 +10,9 @@ typealias Interval = IntRange
 
 /**
  * Algorithm that merges overlapping intervals, while non-overlapping intervals remain unchanged.
+ * Example:
+ * - Input: [25,30] [2,19] [14,23] [4,8]
+ * - Output: [2,23] [25,30]
  *
  * @param intervals - Multiple [Interval] objects that may intersect.
  * @return List of [Interval] objects that do not intersect.
