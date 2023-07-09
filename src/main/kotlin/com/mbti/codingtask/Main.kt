@@ -1,5 +1,6 @@
 package com.mbti.codingtask
 
+
 /**
  * Entry point of this Kotlin application.
  */
