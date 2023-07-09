@@ -11,9 +11,8 @@ fun main(args: Array<String>) {
 
     val inputString = args.joinToString(" ")
     if (inputString.isBlank()) {
-        System.err.println("No input arguments provided!")
-        System.err.println("Please enter intervals that should be merged in the format '[start,end]', each separated a space.")
-        exitProcess(1)
+        System.err.println("Warn: Empty list of intervals provided!")
+        System.err.println("Please enter intervals in the format '[start,end]', each separated a space.")
     }
 
     // Parse console input with error handling
