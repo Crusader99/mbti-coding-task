@@ -5,8 +5,8 @@
 
 Welcome to the Interval Merge Application.
 This application contains a simple console application for testing.
-The actual `MERGE`-function can be found in `/src/main/kotlin/com/mbti/codingtask/IntervalMerger.kt`
-All Automated test units (`com/mbti/codingtask/MergeTest.kt`) will run on a CI-Server after each pushed commit.
+The actual `MERGE`-function can be found in `src/main/kotlin/com/mbti/codingtask/IntervalMerger.kt`
+All automated test units (`src/test/kotlin/com/mbti/codingtask`) will run on a CI-Server after each pushed commit.
 
 ---
 
@@ -19,9 +19,7 @@ All Automated test units (`com/mbti/codingtask/MergeTest.kt`) will run on a CI-S
 #### Robustness
 - To process a very large list of intervals as input, it makes sense to use a doubly linked list, such as a LinkedList, instead of an ArrayList, because the linked list can be efficiently expanded compared to an ArrayList.
 - Null-pointer safety is ensured through Kotlin's strict typing.
-- Test units to cover edge cases, even large inputs have to be tested.
-- Only interval objects can be created where the first number is less or equals to the second number.
-- Only integer intervals are allowed to avoid issues with floating-point comparison.
+- Use test units to cover edge cases, also large randomized inputs have been tested.
 
 ---
 
