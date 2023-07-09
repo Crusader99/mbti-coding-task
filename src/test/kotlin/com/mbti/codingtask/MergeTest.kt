@@ -1,6 +1,7 @@
 package com.mbti.codingtask
 
 import com.mbti.codingtask.utils.assertMergeIntervals
+import kotlin.random.Random
 import kotlin.test.Test
 
 
@@ -80,5 +81,32 @@ class MergeTest {
         toExpectedOutput = listOf(2..3)
     )
 
+    @Test
+    fun testNegativeIntervalValues() = assertMergeIntervals(
+        fromGivenInput = listOf(-22..3, -23..-2),
+        toExpectedOutput = listOf(-23..3)
+    )
+
+    @Test
+    fun testLargeIntervalValues() = assertMergeIntervals(
+        // Create large values on the border of the int range to cover edge cases
+        fromGivenInput = listOf(Int.MIN_VALUE / 2..Int.MAX_VALUE, Int.MIN_VALUE..Int.MAX_VALUE / 2),
+        toExpectedOutput = listOf(Int.MIN_VALUE..Int.MAX_VALUE)
+    )
+
+    @Test
+    fun testWithLargeRandomizedList() {
+        // Create random with seed to ensure the tests runs the same every execution
+        val random = Random(0)
+
+        // Create a large list of random values
+        val inputList = buildList<Interval>(10000) {
+            val firstValue = random.nextInt() / 2
+            this += Interval(firstValue, firstValue + random.nextInt() / 2)
+        }
+
+        // Only ensure that there is no error thrown on execution
+        merge(inputList)
+    }
 
 }
