@@ -1,5 +1,7 @@
-package com.mbti.codingtask
+package com.mbti.codingtask.utils
 
+import com.mbti.codingtask.Interval
+import com.mbti.codingtask.merge
 import kotlin.test.assertContentEquals
 
 

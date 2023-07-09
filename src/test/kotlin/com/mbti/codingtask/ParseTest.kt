@@ -3,6 +3,7 @@ package com.mbti.codingtask
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
 
+
 /**
  * Mercedes-Benz Tech Innovation: Coding Task
  *

@@ -1,5 +1,6 @@
 package com.mbti.codingtask
 
+import com.mbti.codingtask.utils.assertMergeIntervals
 import kotlin.test.Test
 
 
