@@ -3,12 +3,20 @@
  */
 package com.mbti.codingtask
 
+import kotlin.test.Ignore
 import kotlin.test.Test
-import kotlin.test.assertNotNull
+import kotlin.test.assertContentEquals
 
 class AppTest {
-    @Test fun appHasAGreeting() {
-        val classUnderTest = App()
-        assertNotNull(classUnderTest.greeting, "app should have a greeting")
+
+    @Test
+    @Ignore
+    fun testGivenExample() {
+        val inputIntervals = listOf(25..30, 2..19, 14..23, 4..8)
+        val expectedOutputIntervals = listOf(2..23, 25..30)
+        val actualOutputIntervals = merge(inputIntervals)
+        val errorMessage = "Output intervals do not match expectations"
+        assertContentEquals(expectedOutputIntervals, actualOutputIntervals, errorMessage)
     }
+
 }
