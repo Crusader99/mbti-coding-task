@@ -13,6 +13,9 @@ typealias Interval = IntRange
  * Example:
  * - Input: [25,30] [2,19] [14,23] [4,8]
  * - Output: [2,23] [25,30]
+ * Assumptions:
+ * - Intervals are always integer based.
+ * - The first number of an interval is always less or equals to the second number. (a <= b for [a,b])
  *
  * @param intervals - Multiple [Interval] objects that may intersect.
  * @return List of [Interval] objects that do not intersect.
@@ -22,6 +25,7 @@ fun merge(intervals: List<Interval>): List<Interval> {
     val sortedIntervals = intervals.ifEmpty { return emptyList() }.sortedBy { it.first }
 
     // Initialize result list with the first interval
+    // Using a LinkedList because is can be expanded more efficiently compared to an ArrayList
     val mergedIntervals = LinkedList<IntRange>().apply { this += sortedIntervals.first() }
 
     // Iterate over the remaining intervals

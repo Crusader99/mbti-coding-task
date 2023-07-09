@@ -13,7 +13,7 @@ fun main(args: Array<String>) {
     if (inputString.isBlank()) {
         // Don't cancel, because the user may want to provide an empty list of intervals
         System.err.println("Warn: Empty list of intervals provided!")
-        System.err.println("Please enter intervals in the format '[start,end]', each separated a space.")
+        System.err.println("Please enter intervals in the format '[start,end]', each separated by a space.")
     }
 
     // Parse console input with error handling

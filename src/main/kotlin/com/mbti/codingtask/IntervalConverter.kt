@@ -3,7 +3,7 @@ package com.mbti.codingtask
 
 /**
  * Extension function to convert a [String] with intervals in format '[start,end]',
- * each separated a space into a [List] of [Interval] objects.
+ * each separated by a space into a [List] of [Interval] objects.
  *
  * @return [Interval] objects parsed from the given string.
  */

@@ -6,7 +6,19 @@
 Welcome to the Interval Merge Application.
 This application contains a simple console application for testing.
 The actual `MERGE`-function can be found in `src/main/kotlin/com/mbti/codingtask/IntervalMerger.kt`
-All automated test units (`src/test/kotlin/com/mbti/codingtask`) will run on a CI-Server after each pushed commit.
+All automated test units (`src/test/kotlin/com/mbti/codingtask`) will run on a CI server after each pushed commit.
+
+---
+
+#### Robustness
+```
+Wie kann die Robustheit sichergestellt werden, vor allem auch mit Hinblick auf sehr große Eingaben?
+- Im MERGE-Algorithmus muss ständig ein Intervall zu einer Liste hinzugefügt werden. Bei Verwendung vieler Intervalle ist es sinnvoll, eine LinkedList anstatt eine ArrayList zu verwenden, weil die LinkedList effizienter erweitert werden kann.
+- Mögliche Integer-Überläufe müssen bei großen Eingaben verhindert werden, zum Beispiel indem größere Datentypen bei Berechnungen verwendet werden.
+- Die Robustheit kann mit Unit-Tests erhöht werden, indem Soderfälle abgedeckt werden oder randomisierte Tests durchgeführt werden.
+- Durch strikte Typisierung und Definition von erlaubten Werten, kann vermieden werden, dass ungewollte Sonderfälle überhaupt erst eintreten. Dabei unterstützt z. B. das Verbieten von Null-Werten mittels Kotlin.
+- Damit große Eingaben in angemessener Zeit gemerged werden, muss die Laufzeit von Schleifen geprüft werden, u.a. auch bei der Sortierung der Intervalle.
+```
 
 ---
 
@@ -16,22 +28,15 @@ All automated test units (`src/test/kotlin/com/mbti/codingtask`) will run on a C
 
 ---
 
-#### Robustness
-- To process a very large list of intervals as input, it makes sense to use a doubly linked list, such as a LinkedList, instead of an ArrayList, because the linked list can be efficiently expanded compared to an ArrayList.
-- Null-pointer safety is ensured through Kotlin's strict typing.
-- Use test units to cover edge cases, also large randomized inputs have been tested.
-
----
-
 #### Building & Running
-- This project can be built using Gradle 8.2 and JDK 17
+- This project can be built using Gradle 8.2 and JDK 17.
 - A script will automatically install the correct Gradle version.
 - No GUI is required to execute the console application, so it can be executed in a container.
-- Please pass intervals that should be merged in the format '[start,end]', each separated a space.
-- Example build & execution commands:
+- Please pass intervals that should be merged in the format '[start,end]', each separated by a space.
+- Example build & execution command:
   - Linux: `./gradlew run --args='[25,30] [2,19] [14,23] [4,8]'`
   - Windows:`./gradlew.bat run --args='[25,30] [2,19] [14,23] [4,8]'`
-- Example commands for running test units:
+- Command for running test units:
   - Linux: `./gradlew test`
   - Windows:`./gradlew.bat test`
 
@@ -39,11 +44,11 @@ All automated test units (`src/test/kotlin/com/mbti/codingtask`) will run on a C
 
 #### Selected Technology Stack
 
-- Programming Language: **Kotlin** for better robustness against NullPointerExceptions and more readable code.
-- Build Tool: **Gradle** with Kotlin DSL for consistent usage of Kotlin, even in build scripts.
+- Programming language: **Kotlin** for better robustness against NullPointerExceptions and more readable code.
+- Build tool: **Gradle** with Kotlin DSL for consistent usage of Kotlin, even in build scripts.
 - Tests:
-  - **JUnit 5** to identify errors in the merge algorithm through automated test units.
-- Continuous Integration (CI):
+  - **JUnit 5** to find errors in the MERGE-algorithm through automated test units.
+- Continuous integration (CI):
   - GitHub Actions to automatically execute all test units after every commit.
   - Earthly for reproducible execution, independent of GitHub Actions, Jenkins, CircleCI, etc.
 
