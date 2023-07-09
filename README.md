@@ -1,4 +1,5 @@
-# Mercedes-Benz Tech Innovation: Coding Challenge
+# Mercedes-Benz Tech Innovation: Coding Task
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit)
+
+This project is licensed under the [MIT license](https://github.com/Crusader99/mbti-coding-task/blob/main/README.md).
