@@ -8,5 +8,9 @@
 VERSION 0.7
 FROM gradle:8.2-jdk17
 
-build:
+# Execute JUnit 5 tests with command "earthly +test"
+test:
     WORKDIR /project
+    COPY --dir . .
+    CACHE /home/gradle/.gradle
+    RUN gradle test
