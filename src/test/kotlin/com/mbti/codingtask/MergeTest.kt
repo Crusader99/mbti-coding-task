@@ -43,4 +43,41 @@ class MergeTest {
         toExpectedOutput = listOf(2..3, 4..5)
     )
 
+    @Test
+    fun testSmallIntervals() = assertMergeIntervals(
+        fromGivenInput = listOf(2..2, 3..3),
+        toExpectedOutput = listOf(2..2, 3..3)
+    )
+
+    @Test
+    fun testSameInterval() = assertMergeIntervals(
+        fromGivenInput = listOf(2..2, 2..2),
+        toExpectedOutput = listOf(2..2)
+    )
+
+    @Test
+    fun testIgnoreFirstIntervalBecauseSameStart() = assertMergeIntervals(
+        fromGivenInput = listOf(2..2, 2..3),
+        toExpectedOutput = listOf(2..3)
+    )
+
+    @Test
+    fun testIgnoreFirstIntervalBecauseSameEnd() = assertMergeIntervals(
+        fromGivenInput = listOf(3..3, 2..3),
+        toExpectedOutput = listOf(2..3)
+    )
+
+    @Test
+    fun testIgnoreLastIntervalBecauseSameEnd() = assertMergeIntervals(
+        fromGivenInput = listOf(2..3, 3..3),
+        toExpectedOutput = listOf(2..3)
+    )
+
+    @Test
+    fun testIgnoreLastIntervalBecauseSameStart() = assertMergeIntervals(
+        fromGivenInput = listOf(2..3, 2..2),
+        toExpectedOutput = listOf(2..3)
+    )
+
+
 }
