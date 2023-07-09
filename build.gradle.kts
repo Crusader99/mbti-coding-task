@@ -33,7 +33,7 @@ java {
 
 application {
     // Define the main class for the application
-    mainClass.set("com.mbti.codingtask.AppKt")
+    mainClass.set("com.mbti.codingtask.MainKt")
 }
 
 tasks.named<Test>("test") {
