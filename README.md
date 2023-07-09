@@ -26,7 +26,8 @@ All Automated test units (`com/mbti/codingtask/MergeTest.kt`) will run on a CI-S
 ---
 
 #### Building & Running
-- This project can be built using Gradle 8.2, a script will automatically install the correct version.
+- This project can be built using Gradle 8.2 and JDK 17
+- A script will automatically install the correct Gradle version.
 - No GUI is required to execute the console application, so it can be executed in a container.
 - Please pass intervals that should be merged in the format '[start,end]', each separated a space.
 - Example build & execution commands:
